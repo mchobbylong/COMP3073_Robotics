@@ -1,0 +1,13 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+DEBUG "WHISKER STATES", CR,
+      "Left     Right", CR,
+      "------   ------"
+
+
+DO
+  DEBUG CRSRXY, 0, 3,
+        "P4 = ", BIN1 IN4,
+        "   P7 = ", BIN1 IN7
+  PAUSE 50
+LOOP
