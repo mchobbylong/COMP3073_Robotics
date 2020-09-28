@@ -1,0 +1,61 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+
+I          VAR  Word
+leftStop   CON  747
+rightStop  CON  750
+leftPort   CON  13
+rightPort  CON  12
+shortNum   CON  280
+longNum    CON  425
+turnNum    CON  34
+
+' main()
+
+PAUSE 3000
+GOSUB StepShort1
+GOSUB SharpLeftTurn
+GOSUB Hypotenuse
+GOSUB SharpLeftTurn
+GOSUB StepShort2
+GOSUB EndProgram
+
+StepShort1:
+  FOR I = 1 TO shortNum
+    PULSOUT leftPort, leftStop + 38
+    PULSOUT rightPort, rightStop - 58
+    PAUSE 20
+  NEXT
+  RETURN
+
+Hypotenuse:
+  FOR I = 1 TO longNum
+    PULSOUT leftPort, leftStop + 40
+    PULSOUT rightPort, rightStop - 68
+    PAUSE 20
+  NEXT
+  RETURN
+
+SharpLeftTurn:
+  FOR I = 1 TO turnNum
+    PULSOUT leftPort, leftStop + 58
+    PULSOUT rightPort, rightStop + 63
+    PAUSE 20
+  NEXT
+  PULSOUT leftPort, leftStop
+  PULSOUT rightPort, rightStop
+  PAUSE 100
+  RETURN
+
+StepShort2:
+  FOR I = 1 TO shortNum
+    PULSOUT leftPort, leftStop + 38
+    PULSOUT rightPort, rightStop - 58
+    PAUSE 20
+  NEXT
+  RETURN
+
+EndProgram:
+  END
+

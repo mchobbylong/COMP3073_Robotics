@@ -1,0 +1,24 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+
+I          VAR  Word
+leftStop   CON  747
+rightStop  CON  750
+leftPort   CON  13
+rightPort  CON  12
+
+FOR I = 1 TO 5
+  DEBUG CLS, DEC 6 - I, CR
+  PAUSE 1000
+NEXT
+DEBUG CLS, DEC 0, CR
+
+FOR I = 1 TO 1450
+  PULSOUT leftPort, leftStop - 50
+  PAUSE 20
+NEXT
+
+PULSOUT rightPort, rightStop
+
+END
